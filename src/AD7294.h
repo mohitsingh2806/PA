@@ -4,7 +4,7 @@
 #include <Wire.h>
 #include "misc.h"
 
-
+///////////////////////
 
 #define CMD_REG                     0x00 // W
 
