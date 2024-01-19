@@ -1,0 +1,8 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "wiring_private.h": "c",
+        "arduino.h": "c",
+        "pgmspace.h": "c"
+    }
+}
