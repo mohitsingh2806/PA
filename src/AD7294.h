@@ -77,7 +77,16 @@
 
 
 
+class AD7294{
+uint8_t device_address;
+public:
+void init (uint8_t device_address);
+void
+private:
 
+
+
+};
 
 
 
