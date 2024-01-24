@@ -76,6 +76,38 @@
 
 
 
+class AD7294
+{
+public:
+//   ADC_RESULTS adc_results[8];
+
+  void init (uint8_t i2c_addr);
+  boolean writereg_u16 (uint8_t reg, uint16_t data);
+  boolean readreg_u16 (uint8_t reg, uint16_t *data);
+  boolean writereg_u8 (uint8_t reg, uint8_t data);
+  boolean readreg_u8 (uint8_t reg, uint8_t *data);
+  boolean readagain_u16 (uint16_t *data);
+  boolean readagain_u8 (uint8_t *data);
+
+  boolean set_dac(int channel, uint16_t value);
+  boolean read_temperature(int channel, float *temp);
+
+
+
+  boolean set_limit( uint8_t limit, uint16_t min_value, uint16_t max_value, uint16_t hyst);
+  
+  uint32_t get_alerts();
+  void clear_alerts();
+  uint16_t temp_float_to_limitreg(float temp);
+  
+private:
+  int ad7294_i2c_addr = 0x61;
+  
+  uint8_t lsb (uint16_t w);
+  uint8_t msb (uint16_t w);
+
+
+};
 
 
 
