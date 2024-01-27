@@ -2,7 +2,6 @@
 #define BUC_BAUD 9600
 #define CC_BAUD 115200
 
-
 void init_all_peripherals(void)
 {
 
@@ -10,14 +9,11 @@ void init_all_peripherals(void)
   init();       // arduino related initialisations
   delay(1000);  // system delay of 1 sec so that compass is powered on properly before we send the start data command
   Wire.begin(); // initialisation of I2C interface
+    
 
- 
   /************************************* controller initialisation end****************************************/
   wdt_enable(WDTO_4S); // 4 sec watchdog timer so that we don't get stuck in processes like compass cal indefinitely
- 
 }
-
-
 
 // void sendFastPeriodicCommands(void)
 // {
@@ -96,8 +92,6 @@ void init_all_peripherals(void)
 //   }
 // }
 
-
-
 int searchChar(char *buff, char c, size_t start = 0, size_t end = 50)
 {
   for (size_t i = start; i < end; i++)
@@ -109,6 +103,3 @@ int searchChar(char *buff, char c, size_t start = 0, size_t end = 50)
   }
   return -1;
 }
-
-
-
