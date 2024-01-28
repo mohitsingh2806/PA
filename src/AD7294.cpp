@@ -1,6 +1,6 @@
 #include "AD7294.h"
 
-uint8_t AD7294::writereg(uint8_t reg, uint8_t data)
+uint8_t AD7294::writereg(uint8_t reg, uint8_t data) //8bit
 {
 
     Wire.beginTransmission(device_address);
@@ -11,7 +11,7 @@ uint8_t AD7294::writereg(uint8_t reg, uint8_t data)
     return 0;
 }
 
-uint8_t AD7294::writereg(uint8_t reg, uint16_t data)
+uint8_t AD7294::writereg(uint8_t reg, uint16_t data)  //16bit
 {
 
     Wire.beginTransmission(device_address);
@@ -23,7 +23,7 @@ uint8_t AD7294::writereg(uint8_t reg, uint16_t data)
     return 0;
 }
 
-uint8_t AD7294::readreg8(uint8_t reg, boolean readAgainFlag)
+uint8_t AD7294::readreg8(uint8_t reg, boolean readAgainFlag =false)
 {
     uint8_t data = 0;
 
@@ -50,7 +50,7 @@ uint8_t AD7294::readreg8(uint8_t reg, boolean readAgainFlag)
     return data;
 }
 
-uint16_t AD7294::readreg16(uint8_t reg, boolean readAgainFlag)
+uint16_t AD7294::readreg16(uint8_t reg, boolean readAgainFlag = false)
 {
     uint16_t data = 0;
 
@@ -92,6 +92,11 @@ uint16_t AD7294::readreg16(uint8_t reg, boolean readAgainFlag)
   }
 
 
+
+  float AD7294::temperature(uint8_t channel){
+    float temp = readreg16(channel);  // out of the 16 bits D10 - D0 have the temp 
+
+  }
 
 
 

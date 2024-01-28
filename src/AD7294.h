@@ -152,7 +152,7 @@ public:
 
   uint8_t dac_out(uint8_t channel, uint16_t data);
   uint8_t powerdown(uint8_t value);
-  uint8_t read_temperature(int channel, float *temp);
+  float temperature(uint8_t channel);
   uint8_t readadcs_autocycling();
   uint8_t readadcs_autocycling(uint8_t mask);
   uint8_t set_limit(uint8_t limit, uint16_t min_value, uint16_t max_value, uint16_t hyst);
