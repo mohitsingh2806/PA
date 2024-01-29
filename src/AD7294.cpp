@@ -67,6 +67,7 @@ uint8_t AD7294::readreg8(uint8_t reg, boolean readAgainFlag =false)
 uint16_t AD7294::readreg16(uint8_t reg, boolean readAgainFlag = false)
 {
     uint16_t data = 0;
+    uint8_t msb,lsb ;
 
     Wire.beginTransmission(_device_address);
     Wire.write(reg);
@@ -86,8 +87,9 @@ uint16_t AD7294::readreg16(uint8_t reg, boolean readAgainFlag = false)
     {
         return ERRORCODE;
     }
-    data = Wire.read();
-
+    msb = Wire.read();
+    lsb = Wire.read();
+    data = (((uint16_t)msb)<<8 )| (uint16_t)lsb;
     return data;
 }
 
