@@ -7,7 +7,7 @@
 ///////////////////////
 #define ERRORCODE8 0xFF
 #define ERRORCODE 0xFFFF
-
+#define ERRORCODE_FLOAT 999999.0
 #define CMD_REG 0x00 // W
 
 #define ADC_RESULT_REG 0x01 // R
@@ -148,8 +148,6 @@ public:
 
 
 
-
-
   uint8_t dac_out(uint8_t channel, uint16_t data);
   uint8_t powerdown(uint8_t value);
   float temperature(uint8_t channel);
@@ -159,10 +157,10 @@ public:
 
   uint32_t get_alerts();
   void clear_alerts();
-  uint16_t temp_float_to_limitreg(float temp);
+  
 
 private:
-  uint8_t device_address;
+  uint8_t _device_address;
 
   uint8_t extractLSB(uint16_t w);
   uint8_t extractMSB(uint16_t w);
